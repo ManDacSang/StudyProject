@@ -1,0 +1,73 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/29/2023 9:22:15 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-22EGTT2"
+  DTS:CreatorName="DESKTOP-22EGTT2\DELL"
+  DTS:DTSID="{DE76AC3E-0463-4CA6-9F67-561DFD713F18}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{EB8732D3-4D43-4D46-B2FE-8DC710A22FE7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-22EGTT2\DACSANG.SaleStaging]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{3428B649-5B1C-4ED9-9739-BC48215563C9}"
+      DTS:ObjectName="DESKTOP-22EGTT2\DACSANG.SaleStaging">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-22EGTT2\DACSANG;Initial Catalog=SaleStaging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{3428B649-5B1C-4ED9-9739-BC48215563C9}DESKTOP-22EGTT2\DACSANG.SaleStaging;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\TruncateStaging"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CE288840-0DDF-4DA6-88BD-8D3F4C14526B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="TruncateStaging"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{3428B649-5B1C-4ED9-9739-BC48215563C9}"
+          SQLTask:SqlStatementSource="truncate table [Integration].[Channel_Staging] &#xA;truncate table [Integration].[Customer_Staging]&#xA;truncate table [Integration].[Channel_Staging]&#xA;truncate table [Integration].[Employee_Staging]&#xA;truncate table [Integration].[Product_Staging]&#xA;truncate table [Integration].ShipMethod_Staging&#xA;truncate table [Integration].SaleOrder_Staging&#xA;truncate table [Integration].Store_Staging&#xA;truncate table [Integration].Geography_Staging"
+          SQLTask:CodePage="65001" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="165.6,41.6"
+          Id="Package\TruncateStaging"
+          TopLeft="250.714289983925,92.5294130623964" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
